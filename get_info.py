@@ -16,7 +16,7 @@ def read_data(db_config: dict):
             COUNT(DISTINCT client_id)        AS unique_customers
             FROM purchases p
                 INNER JOIN goods g ON p.good_id = g.id
-            WHERE created_at > CURRENT_TIMESTAMP - INTERVAL '2 days'
+            WHERE created_at > CURRENT_TIMESTAMP - INTERVAL '3 days'
             GROUP BY date_trunc('hour', created_at)
             ORDER BY date;
             """)
